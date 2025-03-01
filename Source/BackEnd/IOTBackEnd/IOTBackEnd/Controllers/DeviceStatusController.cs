@@ -21,6 +21,7 @@ public class DeviceStatusController : ControllerBase
     [HttpGet(Name = "GetDeviceStatus")]
     public IEnumerable<DeviceStatus> Get()
     {
+        _logger.LogInformation("Getting device status");
         return Enumerable.Range(1, 5).Select(index => new DeviceStatus
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
