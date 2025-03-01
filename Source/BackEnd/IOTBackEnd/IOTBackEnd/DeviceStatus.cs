@@ -1,6 +1,6 @@
 namespace IOTBackEnd
 {
-    public class WeatherForecast
+    public class DeviceStatus
     {
         public DateOnly Date { get; set; }
 
