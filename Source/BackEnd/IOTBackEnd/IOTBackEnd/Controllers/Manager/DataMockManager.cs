@@ -1,19 +1,36 @@
-﻿namespace IOTBackEnd.Controllers.Manager
+﻿using NLog;
+
+namespace IOTBackEnd.Controllers.Manager
 {
     public class DataMockManager : IManager
     {
-        public IEnumerable<DeviceStatus> GetDeviceStatus()
+        private NLog.ILogger _logger;
+
+        public DataMockManager()
         {
-            return GetDeviceStatus();
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
-        public List<DeviceStatus> CreateData(string name)
+        public IEnumerable<DeviceStatus> GetDeviceStatus()
         {
-            DateTime statusTime = new DateTime(2025, 3, 1, 8, 0, 0);
-            TimeSpan delta = TimeSpan.FromMinutes(1);
+            return CreateData();
+        }
+
+        public List<DeviceStatus> CreateData()
+        {
+            _logger.Info("Creating device status data");
+
+            var timeNow = DateTime.Now;
+            var dateOnly = DateOnly.FromDateTime(timeNow);
+            var timeOnlyStart = new TimeOnly(8, 0);
+            DateTime statusTime = new DateTime(dateOnly, timeOnlyStart);
+            
+            TimeSpan delta = TimeSpan.FromMinutes(5);
             List<DeviceStatus> statuses = new List<DeviceStatus>();
 
-            DateTime limit = new DateTime(2025, 3, 1, 18, 0, 0);
+            var timeOnlyLimit = new TimeOnly(8, 30);
+            DateTime limit = new DateTime(dateOnly, timeOnlyLimit);
+            //DateTime limit = new DateTime(2025, 3, 1, 18, 0, 0);
             bool currentStatus = true;
 
             Random random = new Random();
@@ -36,6 +53,7 @@
                 currentStatus = !currentStatus;
             }
 
+            _logger.Info($"Device Status created for {statuses.Count}");
             return statuses;
         }
     }

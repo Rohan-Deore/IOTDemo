@@ -7,11 +7,6 @@ namespace IOTBackEnd.Controllers;
 [Route("[controller]")]
 public class DeviceStatusController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
     private readonly ILogger<DeviceStatusController> _logger;
 
     public DeviceStatusController(ILogger<DeviceStatusController> logger)
