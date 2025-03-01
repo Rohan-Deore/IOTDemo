@@ -1,3 +1,4 @@
+using IOTBackEnd.Controllers.Manager;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IOTBackEnd.Controllers;
@@ -22,12 +23,21 @@ public class DeviceStatusController : ControllerBase
     public IEnumerable<DeviceStatus> Get()
     {
         _logger.LogInformation("Getting device status");
-        return Enumerable.Range(1, 5).Select(index => new DeviceStatus
+
+        IManager? manager = null;
+        var isDevelopment = string.Equals(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
+            "Development", StringComparison.InvariantCultureIgnoreCase);
+        if (isDevelopment)
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            _logger.LogInformation("Data mocking being used");
+            manager = new DataMockManager();
+        }
+        else
+        {
+            _logger.LogInformation("File manager being used");
+            manager = new FileManager(); 
+        }
+
+        return manager.GetDeviceStatus();
     }
 }

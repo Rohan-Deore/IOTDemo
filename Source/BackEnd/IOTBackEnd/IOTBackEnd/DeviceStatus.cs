@@ -2,12 +2,13 @@ namespace IOTBackEnd
 {
     public class DeviceStatus
     {
-        public DateOnly Date { get; set; }
+        public string DeviceName { get; set; } = string.Empty;
 
-        public int TemperatureC { get; set; }
+        public string DeviceVersion { get; set; } = string.Empty;
 
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public bool Status { get; set; }
 
-        public string? Summary { get; set; }
+        public DateTime StatusTime { get; set; }
+
     }
 }
