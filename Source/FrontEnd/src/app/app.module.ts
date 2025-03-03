@@ -14,7 +14,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GraphComponent,DeviceStatusComponent,NgApexchartsModule
+    DeviceStatusComponent, GraphComponent,NgApexchartsModule
 ],
   providers: [],
   bootstrap: [AppComponent]

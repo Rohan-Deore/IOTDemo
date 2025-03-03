@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from "@angular/core";
+import { DeviceStatusComponent } from '../deviceStatus/deviceStatus.component';
 
 
 // export type ChartOptions = {
@@ -15,7 +16,8 @@ import { ViewChild } from "@angular/core";
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.css']
+  styleUrls: ['./graph.component.css'],
+  imports: [DeviceStatusComponent]
 })
 export class GraphComponent {
 
