@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { GraphComponent } from "../Graph/graph.component";
 
 @Component({
   selector: 'app-deviceStatus',
   templateUrl: './deviceStatus.component.html',
-  styleUrls: ['./deviceStatus.component.css']
+  styleUrls: ['./deviceStatus.component.css'],
+  imports: [GraphComponent]
 })
-export class DeviceStatusComponent implements OnInit {
-  @Input() data: any;
-  Status: boolean = true;
-  DeviceName: string = "Device1";
-  StatusTime : Date = new Date();
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class DeviceStatusComponent  {
+  @Input() deviceName: string = '';
+  @Input() status: boolean = false;
+  
 }

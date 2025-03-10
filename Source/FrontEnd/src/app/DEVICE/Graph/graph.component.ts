@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from "@angular/core";
 import { DeviceStatusComponent } from '../deviceStatus/deviceStatus.component';
+import { timestamp } from 'rxjs';
 
 
 // export type ChartOptions = {
@@ -19,16 +20,28 @@ import { DeviceStatusComponent } from '../deviceStatus/deviceStatus.component';
   styleUrls: ['./graph.component.css'],
   imports: [DeviceStatusComponent]
 })
-export class GraphComponent implements OnInit {
-  DataPoints: DeviceStatusComponent[] = [
-    new DeviceStatusComponent(),
-    new DeviceStatusComponent()
+export class GraphComponent  {
+  DataPoints = [
+    {
+      deviceName: 'DeviceA',
+      status:true,
+      timestamp: new Date() 
+    },
+    {
+      deviceName: 'DeviceB',
+      status:false,
+      timestamp:new Date()
+    }
   ];
-  
 
+
+  getChartData() {
+    return {
+      labels: this.DataPoints.map(dp=> dp.deviceName),
+      data: this.DataPoints.map(dp => dp.status ? 1 : 0)
+    };
+  }
+}
 
      
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+  

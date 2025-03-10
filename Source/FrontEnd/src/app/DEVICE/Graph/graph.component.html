@@ -1,1 +1,7 @@
-<app-deviceStatus></app-deviceStatus>
+<div *ngFor="let data of DataPoints" class="shadow-lg col-sm-4 p-3">
+
+
+
+    <app-deviceStatus [deviceName]="point.deviceName" [status]="point.status"></app-deviceStatus>
+</div>
+<app-chart [chartLabels]="getChartData().labels" [chartData]="getChartData().data"></app-chart>

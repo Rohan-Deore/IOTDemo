@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { GraphComponent } from "./DEVICE/Graph/graph.component";
 import { DeviceStatusComponent } from "./DEVICE/deviceStatus/deviceStatus.component";
 import { NgApexchartsModule } from "ng-apexcharts";
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DeviceStatusComponent, GraphComponent,NgApexchartsModule
+    DeviceStatusComponent, GraphComponent,NgApexchartsModule,NgChartsModule
 ],
   providers: [],
   bootstrap: [AppComponent]
