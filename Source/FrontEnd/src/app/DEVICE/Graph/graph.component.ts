@@ -19,11 +19,16 @@ import { DeviceStatusComponent } from '../deviceStatus/deviceStatus.component';
   styleUrls: ['./graph.component.css'],
   imports: [DeviceStatusComponent]
 })
-export class GraphComponent {
+export class GraphComponent implements OnInit {
+  DataPoints: DeviceStatusComponent[] = [
+    new DeviceStatusComponent(),
+    new DeviceStatusComponent()
+  ];
+  
+
 
      
-  constructor() {
- 
+  constructor() {}
 
-}
+  ngOnInit(): void {}
 }

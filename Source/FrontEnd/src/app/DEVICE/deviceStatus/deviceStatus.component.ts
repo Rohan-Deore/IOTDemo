@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deviceStatus.component.css']
 })
 export class DeviceStatusComponent implements OnInit {
+  @Input() data: any;
+  Status: boolean = true;
+  DeviceName: string = "Device1";
+  StatusTime : Date = new Date();
 
   constructor() { }
 
