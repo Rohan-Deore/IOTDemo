@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { GraphComponent } from "../Graph/graph.component";
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-deviceStatus',
   templateUrl: './deviceStatus.component.html',
   styleUrls: ['./deviceStatus.component.css'],
-  imports: [GraphComponent]
+  imports: []
 })
 export class DeviceStatusComponent  {
   @Input() deviceName: string = '';

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild } from "@angular/core";
 import { DeviceStatusComponent } from '../deviceStatus/deviceStatus.component';
 import { timestamp } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 
 // export type ChartOptions = {
@@ -18,7 +19,7 @@ import { timestamp } from 'rxjs';
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css'],
-  imports: [DeviceStatusComponent]
+  imports: [DeviceStatusComponent, CommonModule]
 })
 export class GraphComponent  {
   DataPoints = [
